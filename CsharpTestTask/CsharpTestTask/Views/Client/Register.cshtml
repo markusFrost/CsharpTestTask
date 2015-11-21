@@ -52,6 +52,20 @@
             @Html.ValidationMessageFor(model => model.ContactFaceId)
         </div>
 
+        <div class="editor-label" style="margin-bottom:10px;">
+            @Html.LabelFor(model => model.DealState)
+        </div>
+
+        @{var listItems = new List<System.Web.UI.WebControls.ListItem>
+    {
+          new System.Web.UI.WebControls.ListItem { Text = "First Contact", Value= "First Contact" },
+          new System.Web.UI.WebControls.ListItem { Text = "Conversation", Value="Conversation" },
+          new System.Web.UI.WebControls.ListItem { Text = "HarmonizationOfContract", Value="HarmonizationOfContract" },
+          new System.Web.UI.WebControls.ListItem { Text = "Cooperation", Value="Cooperation" }
+    };
+    }
+        @Html.DropDownList("Exemplo",new SelectList(listItems,"Value","Text"))
+
         <p>
             <input type="submit" value="Create" />
         </p>
