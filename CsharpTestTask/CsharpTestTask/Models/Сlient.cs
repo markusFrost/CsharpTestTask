@@ -18,6 +18,7 @@ namespace CsharpTestTask.Models
         [Required(ErrorMessage = "Please enter work phone", AllowEmptyStrings = false)]
         public string Phone { get; set; }
 
+        [DisplayName("Addres of web site")]
         [RegularExpression(@"^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$",
                     ErrorMessage = "Please provide valid addres of website")]
         [Required(ErrorMessage = "Please enter addres of website", AllowEmptyStrings = false)]
@@ -29,7 +30,7 @@ namespace CsharpTestTask.Models
 
         public DealStatus DealState { get; set; }
 
-        [DisplayName("Id of Contact Face")]
+        [DisplayName("Id of contact face")]
         [Required(ErrorMessage = "Please enter id of contact face", AllowEmptyStrings = false)]
         public string ContactFaceId { get; set; }
     }
