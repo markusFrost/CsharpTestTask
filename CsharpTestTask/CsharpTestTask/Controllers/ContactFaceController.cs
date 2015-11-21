@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsharpTestTask.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,17 @@ namespace CsharpTestTask.Controllers
         public ActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(ContactFace item )
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "Successfully Registration Done!";
+            }
+            return View(item);
         }
 
     }
