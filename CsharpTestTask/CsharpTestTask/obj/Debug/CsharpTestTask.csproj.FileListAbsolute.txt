@@ -40,3 +40,4 @@ C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestT
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\obj\Debug\CsharpTestTask.dll
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\obj\Debug\CsharpTestTask.pdb
+C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\obj\Debug\CsharpTestTask.csprojResolveAssemblyReference.cache

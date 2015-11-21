@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsharpTestTask.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace CsharpTestTask.Models
 {
     public class Сlient
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [Required(ErrorMessage = "Please enter name", AllowEmptyStrings = false)]
         public string Name { get; set; }
@@ -25,6 +26,9 @@ namespace CsharpTestTask.Models
 
         public long DateCreate { get; set; }
 
-        
+        public DealStatus DealState { get; set; }
+
+        [Required(ErrorMessage = "Please enter id of contact face", AllowEmptyStrings = false)]
+        public string ContactFaceId { get; set; }
     }
 }
