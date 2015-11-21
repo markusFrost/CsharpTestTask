@@ -4,7 +4,12 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+<h2 style="margin:10px;" >Register</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -14,7 +19,7 @@
 
         @if ( ViewBag.Message != null )
         {
-           <div style="font: 15px bold; color:green;">
+           <div style="font: 15px bold; color:green; margin:10px;">
                @ViewBag.Message
            </div>
         }
@@ -56,15 +61,25 @@
             @Html.LabelFor(model => model.DealState)
         </div>
 
-        @{var listItems = new List<System.Web.UI.WebControls.ListItem>
-    {
-          new System.Web.UI.WebControls.ListItem { Text = "First Contact", Value= "First Contact" },
-          new System.Web.UI.WebControls.ListItem { Text = "Conversation", Value="Conversation" },
-          new System.Web.UI.WebControls.ListItem { Text = "HarmonizationOfContract", Value="HarmonizationOfContract" },
-          new System.Web.UI.WebControls.ListItem { Text = "Cooperation", Value="Cooperation" }
-    };
-    }
-        @Html.DropDownList("Exemplo",new SelectList(listItems,"Value","Text"))
+         @Html.DropDownListFor(model => model.DealState,                
+                  new List<SelectListItem> { 
+                       new SelectListItem { Value = "0" , Text = "First Contact" },
+                       new SelectListItem { Value = "1" , Text = "Conversation" },
+                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
+                       new SelectListItem { Value = "3" , Text = "Cooperation" }
+                    },
+                  new { @class="myselect"})
+       
+
+        <div class="editor-label" style="margin-top:10px;">
+            @Html.LabelFor(model => model.DateOfLastCall)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfLastCall)
+            @Html.ValidationMessageFor(model => model.DateOfLastCall)
+        </div>
+
+       
 
         <p>
             <input type="submit" value="Create" />
@@ -76,6 +91,13 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+<script>
+  $(function() {
+      $("#DateOfLastCall").datepicker();
+  });
+  </script>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+

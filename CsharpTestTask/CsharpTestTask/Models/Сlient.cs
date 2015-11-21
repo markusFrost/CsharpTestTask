@@ -24,8 +24,10 @@ namespace CsharpTestTask.Models
         [Required(ErrorMessage = "Please enter addres of website", AllowEmptyStrings = false)]
         public string AdressWebSite { get; set; }
 
-        public long DateOfLastCall { get; set; }
+        [DisplayName("Date of last call")]
+        public string DateOfLastCall { get; set; }
 
+        [DisplayName("Deal State")]
         public long DateCreate { get; set; }
 
         public DealStatus DealState { get; set; }
