@@ -23,9 +23,21 @@ namespace CsharpTestTask.Controllers
         {
             if (ModelState.IsValid)
             {
+                item.DateCreate = getNowTimeInMillisecond();
+
+
                 ViewBag.Message = "Successfully Registration Done!";
             }
             return View(item);
+        }
+
+        public static long getNowTimeInMillisecond()
+        {
+             DateTime now = DateTime.Now;
+            DateTime old = new DateTime(1970, 1, 1);
+            TimeSpan t = now - old;
+            long timestamp = (long)t.TotalMilliseconds;
+            return timestamp;
         }
 
 
