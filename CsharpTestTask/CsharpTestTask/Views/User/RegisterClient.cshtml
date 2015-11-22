@@ -1,0 +1,105 @@
+﻿@model CsharpTestTask.Models.Сlient
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+<h2 style="margin:10px;" >Register Client</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+     @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Сlient</legend>
+
+        @if ( ViewBag.Message != null )
+        {
+           <div style="font: 15px bold; color:green; margin:10px;">
+               @ViewBag.Message
+           </div>
+        }
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdressWebSite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdressWebSite)
+            @Html.ValidationMessageFor(model => model.AdressWebSite)
+        </div>
+
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactFaceId)
+        </div>
+        <div class="editor-field">
+           @Html.DropDownListFor(model => model.ContactFaceId,                
+                  CsharpTestTask.Controllers.ClientController.generateContactFace(),
+                  new { @class="myselect"})
+        </div>
+
+        <div class="editor-label" style="margin-bottom:10px;">
+            @Html.LabelFor(model => model.DealState)
+        </div>
+
+
+         @Html.DropDownListFor(model => model.DealState,                
+                   new List<SelectListItem> { 
+                       new SelectListItem { Value = "0" , Text = "First Contact" },
+                       new SelectListItem { Value = "1" , Text = "Conversation" },
+                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
+                       new SelectListItem { Value = "3" , Text = "Cooperation" }
+                    },
+                  new { @class="myselect"})
+       
+
+        <div class="editor-label" style="margin-top:10px;">
+            @Html.LabelFor(model => model.DateOfLastCall)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfLastCall)
+            @Html.ValidationMessageFor(model => model.DateOfLastCall)
+        </div>
+
+       
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<!--<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>-->
+
+<script>
+  $(function() {
+      $("#DateOfLastCall").datepicker();
+  });
+  </script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

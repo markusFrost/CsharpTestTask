@@ -165,12 +165,13 @@
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\ContactFaceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\ContactFace.cs" />
+    <Compile Include="Models\ContactPerson.cs" />
     <Compile Include="Models\Enums\DealStatus.cs" />
     <Compile Include="Models\Сlient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -288,6 +289,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\ContactFace\Register.cshtml" />
     <Content Include="Views\Client\Register.cshtml" />
+    <Content Include="Views\User\RegisterClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

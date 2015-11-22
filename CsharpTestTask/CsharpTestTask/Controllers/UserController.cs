@@ -8,19 +8,20 @@ using System.Web.Mvc;
 
 namespace CsharpTestTask.Controllers
 {
-    public class ClientController : Controller
+    public class UserController : Controller
     {
         //
-        // GET: /Client/
+        // GET: /User/
 
-        public ActionResult Register()
+        //RegisterClient
+        public ActionResult RegisterClient()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(Сlient item)
+        public ActionResult RegisterClient(Сlient item)
         {
             if (ModelState.IsValid)
             {
@@ -34,6 +35,24 @@ namespace CsharpTestTask.Controllers
             }
             return View(item);
         }
+
+        public ActionResult RegisterContactPerson()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RegisterContactPerson(ContactPerson item)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "Successfully Registration Done!";
+            }
+            return View(item);
+        }
+
+        //-------------------------
 
         public static List<SelectListItem> generateContactFace()
         {
@@ -50,7 +69,7 @@ namespace CsharpTestTask.Controllers
             item.Patronymic = "Tom";
 
             string value = item.Surname + " " + item.Name + " " + item.Patronymic;
-            list.Add(new SelectListItem { Value = item.Id + "", Text = value  });
+            list.Add(new SelectListItem { Value = item.Id + "", Text = value });
             //--------------------
             item = new ContactPerson();
             item.Id = 2;
@@ -88,7 +107,7 @@ namespace CsharpTestTask.Controllers
             DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             DateTime date = start.AddMilliseconds(time).ToLocalTime();
 
-            return date.ToString("MM/dd/yyyy").Replace(".","/") ;
+            return date.ToString("MM/dd/yyyy").Replace(".", "/");
         }
 
         public static long getTimeInMillisecond(string value)
@@ -104,13 +123,18 @@ namespace CsharpTestTask.Controllers
 
         public static long getNowTimeInMillisecond()
         {
-             DateTime now = DateTime.Now;
+            DateTime now = DateTime.Now;
             DateTime old = new DateTime(1970, 1, 1);
             TimeSpan t = now - old;
             long timestamp = (long)t.TotalMilliseconds;
             return timestamp;
         }
 
+
+        //-------------------------
+
+
+       
 
     }
 }

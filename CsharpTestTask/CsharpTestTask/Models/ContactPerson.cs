@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CsharpTestTask.Models
 {
-    public class ContactFace
+    public class ContactPerson
     {
         public int Id {get; set;}
         

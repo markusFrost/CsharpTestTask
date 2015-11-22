@@ -19,7 +19,7 @@ namespace CsharpTestTask.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(ContactFace item )
+        public ActionResult Register(ContactPerson item )
         {
             if (ModelState.IsValid)
             {
