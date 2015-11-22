@@ -35,6 +35,54 @@ namespace CsharpTestTask.Controllers
             return View(item);
         }
 
+        public static List<SelectListItem> generateContactFace()
+        {
+            //List<ContactFace> list = new List<ContactFace>();
+
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            ContactFace item;
+
+            item = new ContactFace();
+            item.Id = 1;
+            item.Name = "John";
+            item.Surname = "Smith";
+            item.Patronymic = "Tom";
+
+            string value = item.Surname + " " + item.Name + " " + item.Patronymic;
+            list.Add(new SelectListItem { Value = item.Id + "", Text = value  });
+            //--------------------
+            item = new ContactFace();
+            item.Id = 2;
+            item.Name = "Mark";
+            item.Surname = "Walker";
+            item.Patronymic = "James";
+
+            value = item.Surname + " " + item.Name + " " + item.Patronymic;
+            list.Add(new SelectListItem { Value = item.Id + "", Text = value });
+            //--------------------
+            item = new ContactFace();
+            item.Id = 3;
+            item.Name = "Peter";
+            item.Surname = "Craw";
+            item.Patronymic = "Appach";
+
+            value = item.Surname + " " + item.Name + " " + item.Patronymic;
+            list.Add(new SelectListItem { Value = item.Id + "", Text = value });
+            //--------------------
+            item = new ContactFace();
+            item.Id = 4;
+            item.Name = "Gray";
+            item.Surname = "Pears";
+            item.Patronymic = "Sam";
+
+            value = item.Surname + " " + item.Name + " " + item.Patronymic;
+            list.Add(new SelectListItem { Value = item.Id + "", Text = value });
+            //--------------------
+
+            return list;
+        }
+
         public static string getDateTimeByMills(long time)
         {
             DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);

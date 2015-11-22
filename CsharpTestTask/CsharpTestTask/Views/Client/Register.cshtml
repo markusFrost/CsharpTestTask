@@ -53,16 +53,18 @@
             @Html.LabelFor(model => model.ContactFaceId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ContactFaceId)
-            @Html.ValidationMessageFor(model => model.ContactFaceId)
+           @Html.DropDownListFor(model => model.ContactFaceId,                
+                  CsharpTestTask.Controllers.ClientController.generateContactFace(),
+                  new { @class="myselect"})
         </div>
 
         <div class="editor-label" style="margin-bottom:10px;">
             @Html.LabelFor(model => model.DealState)
         </div>
 
+
          @Html.DropDownListFor(model => model.DealState,                
-                  new List<SelectListItem> { 
+                   new List<SelectListItem> { 
                        new SelectListItem { Value = "0" , Text = "First Contact" },
                        new SelectListItem { Value = "1" , Text = "Conversation" },
                        new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },

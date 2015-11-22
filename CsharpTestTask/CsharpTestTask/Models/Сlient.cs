@@ -32,8 +32,8 @@ namespace CsharpTestTask.Models
 
         public DealStatus DealState { get; set; }
 
-        [DisplayName("Id of contact face")]
-        [Required(ErrorMessage = "Please enter id of contact face", AllowEmptyStrings = false)]
-        public string ContactFaceId { get; set; }
+        [DisplayName("Contact face name")]
+        //[Required(ErrorMessage = "Please enter id of contact face", AllowEmptyStrings = false)]
+        public long ContactFaceId { get; set; }
     }
 }
