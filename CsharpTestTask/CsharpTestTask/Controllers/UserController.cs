@@ -52,7 +52,39 @@ namespace CsharpTestTask.Controllers
             return View(item);
         }
 
+
+        public ActionResult getUsers()
+        {
+            return View(generateClient());
+        }
+
+
+
         //-------------------------
+
+        public static List<Сlient> generateClient()
+        {
+          
+            List<Сlient> list = new List<Сlient>();
+
+            Сlient item ;
+
+            for ( int i = 0; i < 10; i++)
+            {
+                item = new Сlient();
+                item.ContactPersonId = i;
+                item.DateCreate = "11/21/2015";
+                item.DateOfLastCall = "11/22/2015";
+                item.DealState = Models.Enums.DealStatus.FirstContact;
+                item.Id = i;
+                item.Name = "Name" + " " + i;
+                item.Phone = i + "" + i + "" + i + "" + i;
+                item.AdressWebSite = "Adress " + i;
+
+                list.Add(item);
+            }
+            return list;
+        }
 
         public static List<SelectListItem> generateContactFace()
         {
