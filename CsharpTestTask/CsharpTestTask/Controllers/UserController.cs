@@ -62,9 +62,37 @@ namespace CsharpTestTask.Controllers
             return View(generateUsers().ToPagedList(pageNumber, pageSize));
         }
 
+        public ActionResult EditClient(long id)
+        {           
+            return View( getClientById(id) );
+        }
+
+        public ActionResult EditContactPerson()
+        {
+            return View();
+        }
+
 
 
         //-------------------------
+
+        public static Сlient getClientById(long id)
+        {
+            Сlient item = new Сlient();
+
+            UserDto user = generateUsers()[(int)id];
+            // need to get id from contact person
+            // it will be simple because realy it will become from DB
+            item.AdressWebSite = user.ClientAdressWebSite;
+            item.ContactPersonId = id;
+            item.DateCreate = user.ClientDateCreate;
+            item.DateOfLastCall = user.ClientDateOfLastCall;
+            item.DealState = Models.Enums.DealStatus.Cooperation;
+            item.Name = user.ClientName;
+            item.Phone = user.ClientPhone;
+
+            return item;
+        }
 
         public static List<UserDto> generateUsers()
         {
@@ -78,6 +106,7 @@ namespace CsharpTestTask.Controllers
                 item = new UserDto();
 
                 // fill Client
+                item.ClientId = i;
                 item.ClientDateCreate = "11/21/2015";
                 item.ClientDateOfLastCall = "11/22/2015";
                 item.ClientDealState = "deal " + i; //!!! change to string
@@ -88,7 +117,7 @@ namespace CsharpTestTask.Controllers
 
 
                 //fill contact face
-
+                item.ContactPersonId = i;
                 item.ContactPersonEmail = "email " + i;
                 item.ContactPersonMobilePhone = i * 2 + "" + i * 3 + "" + i * 7 + "" + i * 2;
                 item.ContactPersonName = "CPName " + i;

@@ -92,8 +92,8 @@
             @Html.DisplayFor(modelItem => item.ContactPersonEmail)
         </td>
         <td>
-            @Html.ActionLink("Edit client", "Edit", new { id=item.ClientId }) |
-            @Html.ActionLink("Edit contact face", "Details", new { id=item.ContactPersonId }) 
+            @Html.ActionLink("Edit client", "EditClient", new { id=item.ClientId }) |
+            @Html.ActionLink("Edit contact face", "EditContactPerson", new { id=item.ContactPersonId }) 
         </td>
     </tr>
 }

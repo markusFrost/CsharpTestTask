@@ -1,0 +1,90 @@
+﻿@model CsharpTestTask.Models.Сlient
+
+@{
+    ViewBag.Title = "EditClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditClient</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UserDto</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdressWebSite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdressWebSite)
+            @Html.ValidationMessageFor(model => model.AdressWebSite)
+        </div>
+
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactPersonId)
+        </div>
+        <div class="editor-field">
+           @Html.DropDownListFor(model => model.ContactPersonId,                
+                  CsharpTestTask.Controllers.UserController.generateContactFace(),
+                  new { @class="myselect"})
+        </div>
+
+        <div class="editor-label" style="margin-bottom:10px;">
+            @Html.LabelFor(model => model.DealState)
+        </div>
+
+
+         @Html.DropDownListFor(model => model.DealState,                
+                   new List<SelectListItem> { 
+                       new SelectListItem { Value = "0" , Text = "First Contact" },
+                       new SelectListItem { Value = "1" , Text = "Conversation" },
+                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
+                       new SelectListItem { Value = "3" , Text = "Cooperation" }
+                    },
+                  new { @class="myselect"})
+       
+
+        <div class="editor-label" style="margin-top:10px;">
+            @Html.LabelFor(model => model.DateOfLastCall)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateOfLastCall)
+            @Html.ValidationMessageFor(model => model.DateOfLastCall)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
