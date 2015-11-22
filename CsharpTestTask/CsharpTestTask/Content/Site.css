@@ -736,6 +736,10 @@ tr.pager td {
         width: auto;
     }
 
+    #body-block-content {
+        margin:20px;
+    }
+
 
     /* footer
     ----------------------------------------------------------*/
@@ -753,4 +757,5 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+
 }

@@ -2,14 +2,16 @@
 
 @{
     ViewBag.Title = "getUsers";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-<h2>getUsers</h2>
+<!--<h2>getUsers</h2> -->
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create new client", "RegisterClient", null, new { target = "_blank" })
+     @Html.ActionLink("Create new contact person", "RegisterContactPerson", null, new { target = "_blank" })
 </p>
-<table>
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ClientName)
