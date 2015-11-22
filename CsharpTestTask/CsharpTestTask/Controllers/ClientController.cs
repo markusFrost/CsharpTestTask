@@ -24,7 +24,7 @@ namespace CsharpTestTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                item.DateCreate = getNowTimeInMillisecond();
+                item.DateCreate = getDateTimeByMills(getNowTimeInMillisecond());
 
                 long time = getTimeInMillisecond(item.DateOfLastCall);
 

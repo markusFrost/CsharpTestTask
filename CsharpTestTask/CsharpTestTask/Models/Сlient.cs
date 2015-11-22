@@ -28,12 +28,11 @@ namespace CsharpTestTask.Models
         public string DateOfLastCall { get; set; }
 
         [DisplayName("Deal State")]
-        public long DateCreate { get; set; }
+        public string DateCreate { get; set; }
 
         public DealStatus DealState { get; set; }
 
         [DisplayName("Contact face name")]
-        //[Required(ErrorMessage = "Please enter id of contact face", AllowEmptyStrings = false)]
         public long ContactFaceId { get; set; }
     }
 }
