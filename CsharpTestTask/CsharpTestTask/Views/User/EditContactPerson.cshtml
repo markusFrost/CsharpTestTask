@@ -9,9 +9,11 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()
+
     <fieldset>
         <legend>ContactFace</legend>
 
+        
         @if ( ViewBag.Message != null )
         {
            <div style="font: 15px bold; color:green;">

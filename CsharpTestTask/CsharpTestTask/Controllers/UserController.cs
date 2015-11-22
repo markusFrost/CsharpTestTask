@@ -69,10 +69,34 @@ namespace CsharpTestTask.Controllers
 
         public ActionResult EditContactPerson(long id)
         {
-            return View();
+            return View(getContactPersonById(id));
         }
 
-        // add http post when change items returns
+        //------- [HttpPost]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditClient(Сlient item)
+        {
+            if (ModelState.IsValid)
+            {
+                // problem = datecreate and spinners
+                ViewBag.Message = "Client was sucessfull updated!";
+            }
+            return View(item);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditContactPerson(ContactPerson item)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "Contact person was sucessfull updated!";
+            }
+            return View(item);
+        }
+
+        //------ [HttpPost]
 
         public ActionResult DeleteClient(long id)
         {
@@ -92,6 +116,23 @@ namespace CsharpTestTask.Controllers
 
         //-------------------------
 
+        public static ContactPerson getContactPersonById( long id )
+        {
+            ContactPerson item = new ContactPerson();
+
+            UserDto user = generateUsers()[(int)id];
+
+            item.Id = id;
+            item.Email = "andreywystawkin@gmail.com";
+            item.MobilePhone = user.ContactPersonMobilePhone;
+            item.Name = user.ContactPersonName;
+            item.Patronymic = user.ContactPersonPatronymic;
+            item.Phone = user.ContactPersonWorkPhone;
+            item.Surname = user.ContactPersonSurname;
+
+            return item;
+        }
+
         public static Сlient getClientById(long id)
         {
             Сlient item = new Сlient();
@@ -99,7 +140,7 @@ namespace CsharpTestTask.Controllers
             UserDto user = generateUsers()[(int)id];
             // need to get id from contact person
             // it will be simple because realy it will become from DB
-            item.AdressWebSite = user.ClientAdressWebSite;
+            item.AdressWebSite = "http://www.cold-corp.com/";
             item.Id = id;
             item.DateCreate = user.ClientDateCreate;
             item.DateOfLastCall = user.ClientDateOfLastCall;
