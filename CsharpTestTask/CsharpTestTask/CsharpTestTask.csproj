@@ -290,6 +290,7 @@
     <Content Include="Views\ContactFace\Register.cshtml" />
     <Content Include="Views\Client\Register.cshtml" />
     <Content Include="Views\User\RegisterClient.cshtml" />
+    <Content Include="Views\User\RegisterContactPerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
