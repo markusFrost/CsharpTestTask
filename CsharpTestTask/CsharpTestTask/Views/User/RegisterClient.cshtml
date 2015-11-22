@@ -50,10 +50,10 @@
 
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.ContactFaceId)
+            @Html.LabelFor(model => model.ContactPersonId)
         </div>
         <div class="editor-field">
-           @Html.DropDownListFor(model => model.ContactFaceId,                
+           @Html.DropDownListFor(model => model.ContactPersonId,                
                   CsharpTestTask.Controllers.ClientController.generateContactFace(),
                   new { @class="myselect"})
         </div>

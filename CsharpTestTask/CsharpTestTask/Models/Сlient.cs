@@ -33,6 +33,6 @@ namespace CsharpTestTask.Models
         public DealStatus DealState { get; set; }
 
         [DisplayName("Contact face name")]
-        public long ContactFaceId { get; set; }
+        public long ContactPersonId { get; set; }
     }
 }
