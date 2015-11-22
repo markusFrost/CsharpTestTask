@@ -1,5 +1,6 @@
-﻿@model IEnumerable<CsharpTestTask.Models.UserDto>
-
+﻿@model PagedList.IPagedList<CsharpTestTask.Models.UserDto>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "getUsers";
     Layout = "~/Views/Shared/_Layout1.cshtml";
@@ -13,41 +14,41 @@
 </p>
 <table class="table table-striped">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientName)
+       <th>
+           Client name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientPhone)
+            Client phone
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientAdressWebSite)
+            Clients web site
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientDateOfLastCall)
+           Date of last call
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientDateCreate)
+           Date of created client
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientDealState)
+           Deal state
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPersonSurname)
+            Surname of contact person
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPersonName)
+           Name of contact person
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPersonPatronymic)
+           Patronymic of contact person
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPersonWorkPhone)
+            Work phone of contact person
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPersonMobilePhone)
+            Mobile phone of contact person
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPersonEmail)
+           Email of contact person
         </th>
         <th></th>
     </tr>
@@ -99,3 +100,7 @@
 }
 
 </table>
+
+Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+ 
+@Html.PagedListPager(Model, page => Url.Action("getUsers",  new { page }))

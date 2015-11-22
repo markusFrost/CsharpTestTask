@@ -40,7 +40,7 @@ namespace CsharpTestTask.Models
         [DisplayName("Patronymic of contact person")]
         public string ContactPersonPatronymic { get; set; }
 
-        [DisplayName("work phone of contact person")]
+        [DisplayName("Work phone of contact person")]
         public string ContactPersonWorkPhone { get; set; }
 
         [DisplayName("MobilePhone of contact person")]

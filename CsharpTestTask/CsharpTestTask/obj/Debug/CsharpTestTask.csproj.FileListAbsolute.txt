@@ -41,3 +41,7 @@ C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestT
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\obj\Debug\CsharpTestTask.dll
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\obj\Debug\CsharpTestTask.pdb
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\obj\Debug\CsharpTestTask.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\PagedList.dll
+C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\PagedList.Mvc.dll
+C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\PagedList.xml
+C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\PagedList.Mvc.xml

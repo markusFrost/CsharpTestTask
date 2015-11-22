@@ -5,6 +5,8 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace CsharpTestTask.Controllers
 {
@@ -53,9 +55,16 @@ namespace CsharpTestTask.Controllers
         }
 
 
-        public ActionResult getUsers()
+      /*  public ActionResult getUsers()
         {
             return View(generateUsers());
+        }*/
+
+        public ActionResult getUsers(int? page)
+        {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(generateUsers().ToPagedList(pageNumber, pageSize));
         }
 
 
@@ -69,7 +78,7 @@ namespace CsharpTestTask.Controllers
 
             UserDto item;
 
-            for ( int i = 0; i < 10; i++)
+            for ( int i = 0; i < 50; i++)
             {
                 item = new UserDto();
 
