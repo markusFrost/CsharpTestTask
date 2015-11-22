@@ -55,32 +55,42 @@ namespace CsharpTestTask.Controllers
 
         public ActionResult getUsers()
         {
-            return View(generateClient());
+            return View(generateUsers());
         }
 
 
 
         //-------------------------
 
-        public static List<Сlient> generateClient()
+        public static List<UserDto> generateUsers()
         {
-          
-            List<Сlient> list = new List<Сlient>();
 
-            Сlient item ;
+            List<UserDto> list = new List<UserDto>();
+
+            UserDto item;
 
             for ( int i = 0; i < 10; i++)
             {
-                item = new Сlient();
-                item.ContactPersonId = i;
-                item.DateCreate = "11/21/2015";
-                item.DateOfLastCall = "11/22/2015";
-                item.DealState = Models.Enums.DealStatus.FirstContact;
-                item.Id = i;
-                item.Name = "Name" + " " + i;
-                item.Phone = i + "" + i + "" + i + "" + i;
-                item.AdressWebSite = "Adress " + i;
+                item = new UserDto();
 
+                // fill Client
+                item.ClientDateCreate = "11/21/2015";
+                item.ClientDateOfLastCall = "11/22/2015";
+                item.ClientDealState = "deal " + i; //!!! change to string
+                item.Id = i;
+                item.ClientName = "Name" + " " + i;
+                item.ClientPhone = i + "" + i + "" + i + "" + i;
+                item.ClientAdressWebSite = "Adress " + i;
+
+
+                //fill contact face
+
+                item.ContactPersonEmail = "email " + i;
+                item.ContactPersonMobilePhone = i * 2 + "" + i * 3 + "" + i * 7 + "" + i * 2;
+                item.ContactPersonName = "CPName " + i;
+                item.ContactPersonPatronymic = "Patronomyc " + i;
+                item.ContactPersonSurname = "CPSurname " + i;
+                item.ContactPersonWorkPhone = i * 2 + "" +  i * 7 + "" + i * 2;
                 list.Add(item);
             }
             return list;

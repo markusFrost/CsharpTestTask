@@ -9,43 +9,45 @@ namespace CsharpTestTask.Models
 {
     public class UserDto
     {
+        public long Id { get; set; }
+
         [DisplayName("Client name")]
         public string ClientName { get; set; }
 
         [DisplayName("Client phone")]
-        public string Phone { get; set; }
+        public string ClientPhone { get; set; }
 
-        [DisplayName("Clients web site")]     
-        public string AdressWebSite { get; set; }
+        [DisplayName("Clients web site")]
+        public string ClientAdressWebSite { get; set; }
 
         [DisplayName("Date of last call")]
-        public string DateOfLastCall { get; set; }
+        public string ClientDateOfLastCall { get; set; }
 
          [DisplayName("Date of Created Client")]
-        public string DateCreate { get; set; }
+        public string ClientDateCreate { get; set; }
 
         [DisplayName("Deal State")]
-        public DealStatus DealState { get; set; }
+         public string ClientDealState { get; set; }
 
         // contact person
 
         [DisplayName("Surname of contact person")]
-        public string Surname { get; set; }
+        public string ContactPersonSurname { get; set; }
 
         [DisplayName("Name of contact person")]
-        public string Name { get; set; }
+        public string ContactPersonName { get; set; }
 
         [DisplayName("Patronymic of contact person")]
-        public string Patronymic { get; set; }
+        public string ContactPersonPatronymic { get; set; }
 
         [DisplayName("work phone of contact person")]
-        public string WorkPhone { get; set; }
+        public string ContactPersonWorkPhone { get; set; }
 
         [DisplayName("MobilePhone of contact person")]
-        public string MobilePhone { get; set; }
+        public string ContactPersonMobilePhone { get; set; }
 
         [DisplayName("Email of contact person")]
-        public string Email { get; set; }
+        public string ContactPersonEmail { get; set; }
 
     }
 }

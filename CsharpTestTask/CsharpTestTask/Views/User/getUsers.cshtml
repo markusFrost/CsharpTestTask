@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CsharpTestTask.Models.Сlient>
+﻿@model IEnumerable<CsharpTestTask.Models.UserDto>
 
 @{
     ViewBag.Title = "getUsers";
@@ -12,22 +12,40 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.ClientName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone)
+            @Html.DisplayNameFor(model => model.ClientPhone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AdressWebSite)
+            @Html.DisplayNameFor(model => model.ClientAdressWebSite)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateOfLastCall)
+            @Html.DisplayNameFor(model => model.ClientDateOfLastCall)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateCreate)
+            @Html.DisplayNameFor(model => model.ClientDateCreate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPersonId)
+            @Html.DisplayNameFor(model => model.ClientDealState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonPatronymic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonWorkPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonMobilePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonEmail)
         </th>
         <th></th>
     </tr>
@@ -35,22 +53,40 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.ClientName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Phone)
+            @Html.DisplayFor(modelItem => item.ClientPhone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AdressWebSite)
+            @Html.DisplayFor(modelItem => item.ClientAdressWebSite)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateOfLastCall)
+            @Html.DisplayFor(modelItem => item.ClientDateOfLastCall)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateCreate)
+            @Html.DisplayFor(modelItem => item.ClientDateCreate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ContactPersonId)
+            @Html.DisplayFor(modelItem => item.ClientDealState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonPatronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonWorkPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonMobilePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonEmail)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
