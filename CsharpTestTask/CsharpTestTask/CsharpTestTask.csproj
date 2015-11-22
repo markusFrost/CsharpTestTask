@@ -299,6 +299,7 @@
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\User\getUsers.cshtml" />
     <Content Include="Views\User\EditClient.cshtml" />
+    <Content Include="Views\User\DeleteClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

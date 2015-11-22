@@ -72,6 +72,12 @@ namespace CsharpTestTask.Controllers
             return View();
         }
 
+        public ActionResult DeleteClient(long id)
+        {
+            //use id of client it is very simple to delete it
+            return View();
+        }
+
 
 
         //-------------------------
@@ -84,7 +90,7 @@ namespace CsharpTestTask.Controllers
             // need to get id from contact person
             // it will be simple because realy it will become from DB
             item.AdressWebSite = user.ClientAdressWebSite;
-            item.ContactPersonId = id;
+            item.Id = id;
             item.DateCreate = user.ClientDateCreate;
             item.DateOfLastCall = user.ClientDateOfLastCall;
             item.DealState = Models.Enums.DealStatus.Cooperation;
