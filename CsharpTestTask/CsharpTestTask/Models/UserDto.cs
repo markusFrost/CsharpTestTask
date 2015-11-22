@@ -11,6 +11,8 @@ namespace CsharpTestTask.Models
     {
         public long Id { get; set; }
 
+        public long ClientId { get; set; }
+
         [DisplayName("Client name")]
         public string ClientName { get; set; }
 
@@ -30,6 +32,8 @@ namespace CsharpTestTask.Models
          public string ClientDealState { get; set; }
 
         // contact person
+
+        public long ContactPersonId { get; set; }
 
         [DisplayName("Surname of contact person")]
         public string ContactPersonSurname { get; set; }

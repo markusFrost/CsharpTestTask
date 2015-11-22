@@ -55,11 +55,6 @@ namespace CsharpTestTask.Controllers
         }
 
 
-      /*  public ActionResult getUsers()
-        {
-            return View(generateUsers());
-        }*/
-
         public ActionResult getUsers(int? page)
         {
             int pageSize = 10;
