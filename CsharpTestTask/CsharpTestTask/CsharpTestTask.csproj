@@ -300,6 +300,8 @@
     <Content Include="Views\User\getUsers.cshtml" />
     <Content Include="Views\User\EditClient.cshtml" />
     <Content Include="Views\User\DeleteClient.cshtml" />
+    <Content Include="Views\User\EditContactPerson.cshtml" />
+    <Content Include="Views\User\DeleteContactPerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

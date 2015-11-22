@@ -67,16 +67,26 @@ namespace CsharpTestTask.Controllers
             return View( getClientById(id) );
         }
 
-        public ActionResult EditContactPerson()
+        public ActionResult EditContactPerson(long id)
         {
             return View();
         }
+
+        // add http post when change items returns
 
         public ActionResult DeleteClient(long id)
         {
             //use id of client it is very simple to delete it
             return View();
         }
+
+        public ActionResult DeleteContactPerson(long id)
+        {
+            //use id of contact person it is very simple to delete it
+            return View();
+        }
+
+
 
 
 

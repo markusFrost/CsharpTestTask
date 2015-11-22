@@ -8,7 +8,7 @@ namespace CsharpTestTask.Models
 {
     public class ContactPerson
     {
-        public int Id {get; set;}
+        public long Id {get; set;}
         
         [Required (ErrorMessage="Please enter surname", AllowEmptyStrings=false) ]
         public string Surname { get; set; }
