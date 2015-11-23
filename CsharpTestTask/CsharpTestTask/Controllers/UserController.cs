@@ -64,8 +64,6 @@ namespace CsharpTestTask.Controllers
         {
             Сlient item = FakeCreator.getClientById(id);
 
-            ViewBag.SelectList = FakeCreator.generateDealState(item.DealState);
-
             return View(item);
         }
 

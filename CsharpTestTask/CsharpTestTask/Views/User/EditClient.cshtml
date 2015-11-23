@@ -66,9 +66,19 @@
             @Html.LabelFor(model => model.DealState)
         </div>
 
+        @{
+    List<SelectListItem> list = new List<SelectListItem> { 
+                       new SelectListItem { Value = "0" , Text = "First Contact" },
+                       new SelectListItem { Value = "1" , Text = "Conversation" },
+                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
+                       new SelectListItem { Value = "3" , Text = "Cooperation" }
+                    };
+
+    list = CsharpTestTask.Helper.FakeCreator.generateDealState(Model.DealState);
+        }
 
         @Html.DropDownListFor(model => model.DealState,                
-                  (List<SelectListItem>)ViewBag.SelectList,
+                list,
                   new { @class="myselect"})
        
 

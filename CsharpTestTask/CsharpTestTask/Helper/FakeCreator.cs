@@ -53,6 +53,8 @@ namespace CsharpTestTask.Helper
                        new SelectListItem { Value = "3" , Text = "Cooperation" }
                     };*/
 
+            List<SelectListItem> array = new List<SelectListItem>(list);
+
             return list;
         }
 
