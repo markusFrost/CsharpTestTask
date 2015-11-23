@@ -178,6 +178,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ContactPerson.cs" />
     <Compile Include="Models\Enums\DealStatus.cs" />
+    <Compile Include="Models\Enums\SortType.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Models\Сlient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -303,6 +304,7 @@
     <Content Include="Views\User\DeleteClient.cshtml" />
     <Content Include="Views\User\EditContactPerson.cshtml" />
     <Content Include="Views\User\DeleteContactPerson.cshtml" />
+    <Content Include="Views\User\sortUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

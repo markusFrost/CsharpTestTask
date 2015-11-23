@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using PagedList.Mvc;
 using PagedList;
 using CsharpTestTask.Helper;
+using CsharpTestTask.Models.Enums;
 
 namespace CsharpTestTask.Controllers
 {
@@ -114,6 +115,13 @@ namespace CsharpTestTask.Controllers
 
 
         public ActionResult getUsers(int? page)
+        {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(FakeCreator.generateUsers().ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult sortUsers(int? page, SortType? sortType)
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);

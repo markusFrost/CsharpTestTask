@@ -104,4 +104,4 @@
 
 Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
  
-@Html.PagedListPager(Model, page => Url.Action("getUsers",  new { page }))
+@Html.PagedListPager(Model, page => Url.Action("sortUsers",  new { page }))
