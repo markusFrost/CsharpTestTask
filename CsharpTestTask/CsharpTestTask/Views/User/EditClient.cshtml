@@ -67,13 +67,8 @@
         </div>
 
 
-         @Html.DropDownListFor(model => model.DealState,                
-                   new List<SelectListItem> { 
-                       new SelectListItem { Value = "0" , Text = "First Contact" },
-                       new SelectListItem { Value = "1" , Text = "Conversation" },
-                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
-                       new SelectListItem { Value = "3" , Text = "Cooperation" }
-                    },
+        @Html.DropDownListFor(model => model.DealState,                
+                  (List<SelectListItem>)ViewBag.SelectList,
                   new { @class="myselect"})
        
 

@@ -1,4 +1,5 @@
 ﻿using CsharpTestTask.Models;
+using CsharpTestTask.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,6 +11,52 @@ namespace CsharpTestTask.Helper
 {
     public class FakeCreator
     {
+
+        public static List<SelectListItem> generateDealState(DealStatus d)
+        {
+            string [] statesArray = { "First Contact", "Conversation", "Harmonization Of Contract", "Cooperation" };
+
+            int index = -1;
+            if (d == DealStatus.FirstContact)
+            {
+                index = 0;
+            }
+            else if (d == DealStatus.Conversation)
+            {
+                index = 1;
+            }
+            else if (d == DealStatus.HarmonizationOfContract)
+            {
+                index = 2;
+            }
+            else if (d == DealStatus.Cooperation)
+            {
+                index = 3;
+            }
+
+            var list = new List<SelectListItem>();
+            list.Add(new SelectListItem { Value = index + "", Text = statesArray[index] });
+
+            int count = 1;
+            for (int i = 0; i < statesArray.Length; i++)
+            {
+                if (i != index)
+                {
+                    list.Add(new SelectListItem { Value = i + "", Text = statesArray[i] });
+                    count++;
+                }
+            }
+           /* var list = new List<SelectListItem> { 
+                       new SelectListItem { Value = "0" , Text = "First Contact" },
+                       new SelectListItem { Value = "1" , Text = "Conversation" },
+                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
+                       new SelectListItem { Value = "3" , Text = "Cooperation" }
+                    };*/
+
+            return list;
+        }
+
+
         public static ContactPerson getContactPersonById(long id)
         {
             ContactPerson item = new ContactPerson();

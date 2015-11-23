@@ -62,7 +62,11 @@ namespace CsharpTestTask.Controllers
         //----Edit Client ---------     
         public ActionResult EditClient(long id)
         {
-            return View(FakeCreator.getClientById(id));
+            Сlient item = FakeCreator.getClientById(id);
+
+            ViewBag.SelectList = FakeCreator.generateDealState(item.DealState);
+
+            return View(item);
         }
 
         [HttpPost]
