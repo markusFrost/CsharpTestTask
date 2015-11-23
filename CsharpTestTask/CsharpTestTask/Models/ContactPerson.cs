@@ -19,9 +19,13 @@ namespace CsharpTestTask.Models
         [Required(ErrorMessage = "Please enter patronymic", AllowEmptyStrings = false)]
         public string Patronymic { get; set; }
 
+        [RegularExpression(@"[\+\d]\d+",
+                   ErrorMessage = "Invalid  work phone number")]
         [Required(ErrorMessage = "Please enter work phone", AllowEmptyStrings = false)]
         public string Phone { get; set; }
 
+        [RegularExpression(@"[\+\d]\d+",
+                   ErrorMessage = "Invalid mobile phone number")]
         [Required(ErrorMessage = "Please enter mobile phone", AllowEmptyStrings = false)]
         public string MobilePhone { get; set; }
 
