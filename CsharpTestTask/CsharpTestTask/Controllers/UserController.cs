@@ -125,7 +125,21 @@ namespace CsharpTestTask.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(FakeCreator.generateUsers().ToPagedList(pageNumber, pageSize));
+            List<UserDto> list = null;
+            if (sortType == null)
+            {
+                list = FakeCreator.generateUsers();
+            }
+            else if (sortType == SortType.ClientName)
+            {
+                list = FakeCreator.getUsersBySortType(SortType.ClientName);
+            }
+            else if (sortType == SortType.DateOfLastCall)
+            {
+                list = FakeCreator.getUsersBySortType(SortType.DateOfLastCall);
+            }
+
+            return View(list.ToPagedList(pageNumber, pageSize));
         }
 
 

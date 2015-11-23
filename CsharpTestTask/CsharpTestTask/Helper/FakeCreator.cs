@@ -12,6 +12,22 @@ namespace CsharpTestTask.Helper
     public class FakeCreator
     {
 
+        public static List<UserDto> getUsersBySortType(SortType sortType)
+        {
+            List<UserDto> list = generateUsers();
+
+            if (sortType == SortType.ClientName)
+            {
+                list.Sort((emp1, emp2) => emp1.ClientName.CompareTo(emp2.ClientName));
+            }
+            else if (sortType == SortType.DateOfLastCall)
+            {
+                list.Sort((emp1, emp2) => emp1.ClientDateOfLastCall.CompareTo(emp2.ClientDateOfLastCall));
+            }
+
+            return list;
+        }
+
         public static List<SelectListItem> generateDealState(DealStatus d)
         {
             string [] statesArray = { "First Contact", "Conversation", "Harmonization Of Contract", "Cooperation" };
