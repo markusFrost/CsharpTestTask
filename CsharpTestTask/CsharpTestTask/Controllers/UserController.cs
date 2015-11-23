@@ -128,15 +128,17 @@ namespace CsharpTestTask.Controllers
             List<UserDto> list = null;
             if (sortType == null)
             {
-                list = FakeCreator.generateUsers();
+                sortType = (SortType) System.Web.HttpContext.Current.Session["sortType"];
             }
-            else if (sortType == SortType.ClientName)
+             if (sortType == SortType.ClientName)
             {
                 list = FakeCreator.getUsersBySortType(SortType.ClientName);
+                System.Web.HttpContext.Current.Session["sortType"] = sortType; 
             }
             else if (sortType == SortType.DateOfLastCall)
             {
                 list = FakeCreator.getUsersBySortType(SortType.DateOfLastCall);
+                System.Web.HttpContext.Current.Session["sortType"] = sortType; 
             }
 
             return View(list.ToPagedList(pageNumber, pageSize));
