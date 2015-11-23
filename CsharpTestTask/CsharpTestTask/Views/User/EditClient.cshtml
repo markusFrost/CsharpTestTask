@@ -54,7 +54,7 @@
         </div>
         <div class="editor-field">
            @Html.DropDownListFor(model => model.ContactPersonId,                
-                  CsharpTestTask.Controllers.UserController.generateContactFace(),
+                  CsharpTestTask.Helper.FakeCreator.generateContactFace(),
                   new { @class="myselect"})
         </div>
 
