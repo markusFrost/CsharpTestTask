@@ -15,7 +15,9 @@ namespace CsharpTestTask.Models
         [Required(ErrorMessage = "Please enter name", AllowEmptyStrings = false)]
         public string Name { get; set; }
 
-       // [Required(ErrorMessage = "Please enter work phone", AllowEmptyStrings = false)]
+        [RegularExpression(@"[\+\d]\d+",
+                    ErrorMessage = "Invalid phone number")]
+        [Required(ErrorMessage = "Please enter work phone", AllowEmptyStrings = false)]
         public string Phone { get; set; }
 
         [DisplayName("Addres of web site")]
