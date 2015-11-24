@@ -148,9 +148,20 @@ namespace CsharpTestTask.Controllers
             return View(list.ToPagedList(pageNumber, pageSize));
         }
 
+        
         //fielter users by deal state
-        public ActionResult fielterUsers(string dealState)
+        [HttpGet]
+        public ActionResult fielterUsers(int? page, string dealState)
         {
+
+            if (dealState != null)
+            {
+                System.Web.HttpContext.Current.Session["dealState"] = dealState; 
+            }
+            else
+            {
+                dealState = (string)System.Web.HttpContext.Current.Session["dealState"];
+            }
             int position = 0;
             Int32.TryParse(dealState, out position);
 
@@ -164,7 +175,9 @@ namespace CsharpTestTask.Controllers
 
             list = users.ToList<UserDto>();
 
-            return View(users);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View( list.ToPagedList(pageNumber, pageSize));
         }
 
 
