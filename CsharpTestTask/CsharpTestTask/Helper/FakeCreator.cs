@@ -12,6 +12,8 @@ namespace CsharpTestTask.Helper
     public class FakeCreator
     {
 
+        public  static  string[] statesArray = { "First Contact", "Conversation", "Harmonization Of Contract", "Cooperation" };
+
         public static List<UserDto> getUsersBySortType(SortType sortType)
         {
             List<UserDto> list = generateUsers();
@@ -30,7 +32,7 @@ namespace CsharpTestTask.Helper
 
         public static List<SelectListItem> generateDealState(DealStatus d)
         {
-            string [] statesArray = { "First Contact", "Conversation", "Harmonization Of Contract", "Cooperation" };
+            
 
             int index = -1;
             if (d == DealStatus.FirstContact)
@@ -125,7 +127,7 @@ namespace CsharpTestTask.Helper
                 item.ClientId = i;
                 item.ClientDateCreate = "11/21/2015";
                 item.ClientDateOfLastCall = "11/22/2015";
-                item.ClientDealState = "deal " + i; //!!! change to string
+                item.ClientDealState = statesArray[i % 4]; //!!! change to string
                 item.Id = i;
                 item.ClientName = "Name" + " " + i;
                 item.ClientPhone = i + "" + i + "" + i + "" + i;

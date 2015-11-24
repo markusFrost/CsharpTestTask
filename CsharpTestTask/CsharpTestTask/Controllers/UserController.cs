@@ -114,6 +114,8 @@ namespace CsharpTestTask.Controllers
         //------ Delete 
 
 
+        // Page getUsers simple pagination
+
         public ActionResult getUsers(int? page)
         {
             int pageSize = 10;
@@ -121,6 +123,8 @@ namespace CsharpTestTask.Controllers
             return View(FakeCreator.generateUsers().ToPagedList(pageNumber, pageSize));
         }
 
+
+        //Sort users with pagination and sort param
         public ActionResult sortUsers(int? page, SortType? sortType)
         {
             int pageSize = 10;
@@ -142,6 +146,25 @@ namespace CsharpTestTask.Controllers
             }
 
             return View(list.ToPagedList(pageNumber, pageSize));
+        }
+
+        //fielter users by deal state
+        public ActionResult fielterUsers(string dealState)
+        {
+            int position = 0;
+            Int32.TryParse(dealState, out position);
+
+            List<UserDto> list = null;
+            list = FakeCreator.generateUsers();
+
+
+            var users = from item in list
+                        where item.ClientDealState == FakeCreator.statesArray[position]
+                        select item;
+
+            list = users.ToList<UserDto>();
+
+            return View(users);
         }
 
 

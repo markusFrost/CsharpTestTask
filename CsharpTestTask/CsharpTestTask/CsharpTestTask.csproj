@@ -305,6 +305,7 @@
     <Content Include="Views\User\EditContactPerson.cshtml" />
     <Content Include="Views\User\DeleteContactPerson.cshtml" />
     <Content Include="Views\User\sortUsers.cshtml" />
+    <Content Include="Views\User\fielterUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

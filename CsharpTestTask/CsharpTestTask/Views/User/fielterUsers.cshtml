@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "fielterUsers";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>fielterUsers</h2>
+
+  @{
+    List<SelectListItem> list = new List<SelectListItem> { 
+                       new SelectListItem { Value = "0" , Text = "First Contact" },
+                       new SelectListItem { Value = "1" , Text = "Conversation" },
+                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
+                       new SelectListItem { Value = "3" , Text = "Cooperation" }
+                    };
+
+    //list = CsharpTestTask.Helper.FakeCreator.generateDealState(Model.DealState);
+        }
+
+<p>
+    @using (Html.BeginForm())
+    {
+        <span>Deal State</span> @Html.DropDownList("dealState", list);
+        <input type="submit" value="fielter" />
+    }
+</p>
