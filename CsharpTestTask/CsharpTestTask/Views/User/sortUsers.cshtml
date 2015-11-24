@@ -8,6 +8,26 @@
 
 <!--<h2>getUsers</h2> -->
 
+@{
+    List<SelectListItem> list = new List<SelectListItem> { 
+                       new SelectListItem { Value = "0" , Text = "First Contact" },
+                       new SelectListItem { Value = "1" , Text = "Conversation" },
+                       new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
+                       new SelectListItem { Value = "3" , Text = "Cooperation" }
+                    };
+
+    //list = CsharpTestTask.Helper.FakeCreator.generateDealState(Model.DealState);
+        }
+
+<p>
+    @using (Html.BeginForm("fielterUsers", "User", FormMethod.Get))
+    {
+        <span>Deal State</span> @Html.DropDownList("dealState", list);
+        <input type="submit" value="fielter" />
+    }
+</p>
+
+
 <p>
     @Html.ActionLink("Create new client", "RegisterClient", null, new { target = "_blank" })
      @Html.ActionLink("Create new contact person", "RegisterContactPerson", null, new { target = "_blank" })
