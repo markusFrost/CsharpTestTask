@@ -17,12 +17,19 @@
     <fieldset>
         <legend>UserDto</legend>
 
-        @if ( ViewBag.Message != null )
-        {
-           <div style="font: 15px bold; color:green; margin:10px;">
-               @ViewBag.Message
+       @if (ViewBag.SuccesMessage != null)
+       {
+           <div style="font: 15px bold; color:green;">
+               @ViewBag.SuccesMessage
            </div>
-        }
+       }
+
+         @if (ViewBag.ErrorMessage != null)
+         {
+           <div style="font: 15px bold; color:red;">
+               @ViewBag.ErrorMessage
+           </div>
+         }
 
         @Html.HiddenFor(model => model.Id)
 
@@ -57,9 +64,9 @@
             @Html.LabelFor(model => model.ContactPersonId)
         </div>
         <div class="editor-field">
-           @Html.DropDownListFor(model => model.ContactPersonId,                
-                  CsharpTestTask.Helper.FakeCreator.generateContactFace(),
-                  new { @class="myselect"})
+           @Html.DropDownListFor(model => model.ContactPersonId,
+                  CsharpTestTask.Controllers.DbHelper.PostgreSQLDbRepository.getInstance().getNameContactFace(Model.ContactPersonId),
+                  new { @class = "myselect" })
         </div>
 
         <div class="editor-label" style="margin-bottom:10px;">
@@ -67,19 +74,19 @@
         </div>
 
         @{
-    List<SelectListItem> list = new List<SelectListItem> { 
+         List<SelectListItem> list = new List<SelectListItem> { 
                        new SelectListItem { Value = "0" , Text = "First Contact" },
                        new SelectListItem { Value = "1" , Text = "Conversation" },
                        new SelectListItem { Value = "2" , Text = "Harmonization Of Contract" },
                        new SelectListItem { Value = "3" , Text = "Cooperation" }
                     };
 
-    list = CsharpTestTask.Helper.FakeCreator.generateDealState(Model.DealState);
+         list = CsharpTestTask.Helper.FakeCreator.generateDealState(Model.DealState);
         }
 
-        @Html.DropDownListFor(model => model.DealState,                
+        @Html.DropDownListFor(model => model.DealState,
                 list,
-                  new { @class="myselect"})
+                  new { @class = "myselect" })
        
 
         <div class="editor-label" style="margin-top:10px;">
@@ -106,7 +113,7 @@
         </p>
 
         <div>
-   @Html.ActionLink("Delete this client", "DeleteClient",  new { id = Model.Id })
+   @Html.ActionLink("Delete this client", "DeleteClient", new { id = Model.Id })
 </div>
     </fieldset>
 }

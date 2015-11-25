@@ -88,8 +88,16 @@ namespace CsharpTestTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                // problem = datecreate and spinners
-                ViewBag.Message = "Client was sucessfull updated!";
+                bool isSucces = PostgreSQLDbRepository.getInstance().UpdateClient(item);
+
+                if (isSucces)
+                {
+                    ViewBag.SuccesMessage = "Client was sucessfull updated!";
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Can not update user into database!";
+                }
             }
             return View(item);
         }

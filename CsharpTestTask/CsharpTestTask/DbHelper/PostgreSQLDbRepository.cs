@@ -210,8 +210,6 @@ namespace CsharpTestTask.Controllers.DbHelper
         {
             bool isSucces = false;
 
-            item.Name = "SlipknotCompany";
-            item.Id = 3;
             string query = "UPDATE clients_table " +
             " SET client_name= " + "'" + item.Name + "'" + " , " +
             " work_phone= " + "'" + item.Phone + "'" + " , " +
@@ -434,6 +432,27 @@ namespace CsharpTestTask.Controllers.DbHelper
 
             return isSucces;
 
+        }
+
+        public List<SelectListItem> getNameContactFace( long id)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+
+
+            List<ContactPerson> listPersons = getAllContactPersons();
+
+            listPersons.RemoveAll((x) => x.Id == id); 
+
+            listPersons.Insert(0,  getContactPersonById(id)); // we need to remove it and set to first position
+
+            foreach (ContactPerson item in listPersons)
+            {
+                    string value = item.Surname + " " + item.Name + " " + item.Patronymic;
+                
+                    list.Add(new SelectListItem { Value = item.Id + "", Text = value });
+            }
+
+            return list;
         }
 
         public  List<SelectListItem> getNameContactFace()
