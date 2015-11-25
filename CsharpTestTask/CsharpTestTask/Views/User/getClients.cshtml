@@ -57,8 +57,7 @@
             @Html.Label(CsharpTestTask.Helper.SimpleHeper.getStringDealStaus(item.DealState), new  {  style="font-weight:100;" })
         </td>
         <td>
-            @Html.ActionLink("Edit client", "EditClient", new { id=item.Id }) |
-             @Html.ActionLink("Display contact person", "EditClient", new { cp_id=item.ContactPersonId }) 
+            @Html.ActionLink("Edit client", "EditClient", new { id=item.Id }) 
         </td>
     </tr>
 }

@@ -131,6 +131,8 @@ namespace CsharpTestTask.Controllers
             return View(FakeCreator.getСlients().ToPagedList(pageNumber, pageSize));
         }
 
+       
+
         //Sort users with pagination and sort param
         public ActionResult sortUsers(int? page, SortType? sortType)
         {
