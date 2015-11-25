@@ -192,12 +192,12 @@ namespace CsharpTestTask.Controllers
             }
              if (sortType == SortType.ClientName)
             {
-                list = PostgreSQLDbRepository.getInstance().getAllUsers();
+                list = PostgreSQLDbRepository.getInstance().getAllUsers(sortType);
                 System.Web.HttpContext.Current.Session["sortType"] = sortType; 
             }
             else if (sortType == SortType.DateOfLastCall)
             {
-                list = PostgreSQLDbRepository.getInstance().getAllUsers();
+                list = PostgreSQLDbRepository.getInstance().getAllUsers(sortType);
                 System.Web.HttpContext.Current.Session["sortType"] = sortType; 
             }
 

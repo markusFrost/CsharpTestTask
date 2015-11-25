@@ -1,5 +1,6 @@
 ﻿using CsharpTestTask.Helper;
 using CsharpTestTask.Models;
+using CsharpTestTask.Models.Enums;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,89 @@ namespace CsharpTestTask.Controllers.DbHelper
 
             return conection;
         }
+
+        public List<UserDto> getAllUsers(SortType? sortType)
+        {
+            List<UserDto> list = new List<UserDto>();
+            UserDto item = null;
+
+            string query = "SELECT  " +
+  "clients_table.client_name as cl_name,  " +
+  "clients_table.work_phone as cl_phone,  " +
+  "clients_table.addres_web_site as cl_addres, " +
+  "clients_table.date_of_last_call as cl_date_calt_call,  " +
+  "clients_table.date_create as cl_date_create,  " +
+  "clients_table.deal_state as cl_deal_state,  " +
+  "clients_table.id as cl_id,  " +
+  "clients_table.contact_person_id as cl_cp_id,  " +
+  "contact_person.first_name as cp_surname ,   " +
+  "contact_person.cf_name as cp_name ,   " +
+  "contact_person.patronymic as cp_patronomyc ,  " +
+  "contact_person.workphone as cp_workphone ,  " +
+  "contact_person.mobile_phone as cp_mobile_phone ,  " +
+  "contact_person.email as cp_email ,  " +
+  "contact_person.id as cp_id  " +
+"FROM  " +
+  "public.clients_table, " +
+  "public.contact_person " +
+"WHERE  " +
+  "clients_table.contact_person_id = contact_person.id ";
+
+            if (sortType == SortType.ClientName)
+            {
+                query += " order by clients_table.client_name";
+            }
+            else if (sortType == SortType.DateOfLastCall)
+            {
+                query += " order by clients_table.date_of_last_call";
+            }
+            else
+            {
+                query += ";";
+            }
+
+            NpgsqlConnection con = getConection();
+
+            NpgsqlCommand com = new NpgsqlCommand(query, con);
+            con.Open();
+            NpgsqlDataReader reader;
+            reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                try
+                {
+                    // item = reader[""].ToString(); 
+                    //item = Convert.ToInt64(reader[""].ToString()); 
+                    item = new UserDto();
+
+                    item.ClientAdressWebSite = reader["cl_addres"].ToString();
+                    item.ClientDateCreate = SimpleHeper.getDateTimeByMills(Convert.ToInt64(reader["cl_date_create"].ToString()));
+                    item.ClientDateOfLastCall = SimpleHeper.getDateTimeByMills(Convert.ToInt64(reader["cl_date_calt_call"].ToString()));
+                    item.ClientDealState = SimpleHeper.getDealStatusByPosition(Convert.ToInt32(reader["cl_deal_state"].ToString()));
+                    item.ClientId = Convert.ToInt64(reader["cl_id"].ToString());
+                    item.ClientName = reader["cl_name"].ToString();
+                    item.ClientPhone = reader["cl_phone"].ToString();
+                    item.ContactPersonEmail = reader["cp_email"].ToString();
+                    item.ContactPersonId = Convert.ToInt64(reader["cp_id"].ToString());
+                    item.ContactPersonMobilePhone = reader["cp_mobile_phone"].ToString();
+                    item.ContactPersonName = reader["cp_name"].ToString();
+                    item.ContactPersonPatronymic = reader["cp_patronomyc"].ToString();
+                    item.ContactPersonSurname = reader["cp_surname"].ToString();
+                    item.ContactPersonWorkPhone = reader["cp_workphone"].ToString();
+
+                    list.Add(item);
+                }
+                catch { }
+
+            }
+            con.Close();
+            return list; ;
+
+
+        }
+
+
+
 
         public List<UserDto> getAllUsers()
         {
@@ -470,6 +554,8 @@ namespace CsharpTestTask.Controllers.DbHelper
           
             return list;
         }
+
+
 
 
         
