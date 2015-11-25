@@ -159,7 +159,7 @@ namespace CsharpTestTask.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(FakeCreator.getСlients().ToPagedList(pageNumber, pageSize));
+            return View(PostgreSQLDbRepository.getInstance().getAllСlients().ToPagedList(pageNumber, pageSize));
         }
 
         //Page get client by contact_person id
@@ -167,7 +167,7 @@ namespace CsharpTestTask.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(FakeCreator.getСlientsByCp_id(cp_id).ToPagedList(pageNumber, pageSize));
+            return View(PostgreSQLDbRepository.getInstance().getAllСlientsByContPersonId(cp_id).ToPagedList(pageNumber, pageSize));
         }
 
         //Page get contact persons

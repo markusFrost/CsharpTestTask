@@ -266,6 +266,48 @@ namespace CsharpTestTask.Controllers.DbHelper
 
         }
 
+        public List<Сlient> getAllСlientsByContPersonId( long id)
+        {
+            List<Сlient> list = new List<Сlient>();
+            Сlient item = null;
+
+
+            string query = "SELECT client_name, work_phone, addres_web_site, date_of_last_call, " +
+                            " date_create, deal_state, id, contact_person_id " +
+                            " FROM clients_table where contact_person_id = " + id + ";";
+
+            NpgsqlConnection con = getConection();
+
+            NpgsqlCommand com = new NpgsqlCommand(query, con);
+            con.Open();
+            NpgsqlDataReader reader;
+            reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                try
+                {
+                    //string result = reader["cf_name"].ToString();//Получаем значение из второго столбца! Первый это (0)!
+                    item = new Сlient();
+                    item.AdressWebSite = reader["addres_web_site"].ToString();
+                    item.ContactPersonId = Convert.ToInt64(reader["contact_person_id"].ToString());
+                    item.DateCreate = SimpleHeper.getDateTimeByMills(Convert.ToInt64(reader["date_create"].ToString()));
+                    item.DateOfLastCall = SimpleHeper.getDateTimeByMills(Convert.ToInt64(reader["date_of_last_call"].ToString()));
+                    item.DealState = SimpleHeper.getDealStatusByValue(Convert.ToInt32(reader["deal_state"].ToString()));
+                    item.Name = reader["client_name"].ToString();
+                    item.Phone = reader["work_phone"].ToString();
+                    item.Id = Convert.ToInt64(reader["id"].ToString());
+                    // item = reader[""].ToString();    
+                    list.Add(item);
+                }
+                catch { }
+
+            }
+            con.Close();
+            return list; ;
+        }
+
+
+
         public List<Сlient> getAllСlients()
         {
             List<Сlient> list = new List<Сlient>();
