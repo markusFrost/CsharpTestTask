@@ -22,6 +22,7 @@ namespace CsharpTestTask.Helper
 
             for (int i = 0; i < 50; i++)
             {
+                item = new ContactPerson();
                 item.Email = "andreywystawkin@yandex.ru";
                 item.Id = i;
                 item.MobilePhone = "89158893604";
