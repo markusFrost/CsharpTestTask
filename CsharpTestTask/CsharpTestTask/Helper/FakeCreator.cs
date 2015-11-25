@@ -14,6 +14,28 @@ namespace CsharpTestTask.Helper
 
         public  static  string[] statesArray = { "First Contact", "Conversation", "Harmonization Of Contract", "Cooperation" };
 
+        public static List<ContactPerson> getContactPersons()
+        {
+            List<ContactPerson> list = new List<ContactPerson>();
+
+            ContactPerson item = null;
+
+            for (int i = 0; i < 50; i++)
+            {
+                item.Email = "andreywystawkin@yandex.ru";
+                item.Id = i;
+                item.MobilePhone = "89158893604";
+                item.Name = "Name " + i;
+                item.Patronymic = "Patronymic " + i;
+                item.Phone = "89156784309";
+                item.Surname = "Surname " + i;
+
+                list.Add(item);
+            }
+
+            return list;
+        }
+
         public static List<Сlient> getСlients()
         {
             List<Сlient> list = new List<Сlient>();

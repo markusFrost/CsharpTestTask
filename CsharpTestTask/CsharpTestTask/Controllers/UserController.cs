@@ -131,6 +131,14 @@ namespace CsharpTestTask.Controllers
             return View(FakeCreator.getСlients().ToPagedList(pageNumber, pageSize));
         }
 
+        //Page get contact persons
+        public ActionResult getContactPersons(int? page)
+        {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(FakeCreator.getСlients().ToPagedList(pageNumber, pageSize));
+        }
+
        
 
         //Sort users with pagination and sort param
