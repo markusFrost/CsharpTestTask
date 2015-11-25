@@ -14,12 +14,19 @@
         <legend>ContactFace</legend>
 
         
-        @if ( ViewBag.Message != null )
-        {
+        @if (ViewBag.SuccesMessage != null)
+         {
            <div style="font: 15px bold; color:green;">
-               @ViewBag.Message
+               @ViewBag.SuccesMessage
            </div>
-        }
+         }
+
+         @if (ViewBag.ErrorMessage != null)
+         {
+           <div style="font: 15px bold; color:red;">
+               @ViewBag.ErrorMessage
+           </div>
+         }
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Surname)

@@ -77,7 +77,7 @@ namespace CsharpTestTask.Controllers
         //----Edit Client ---------     
         public ActionResult EditClient(long id)
         {
-            Сlient item = FakeCreator.getClientById(id);
+            Сlient item = PostgreSQLDbRepository.getInstance().getСlientById(id);
 
             return View(item);
         }
@@ -98,7 +98,7 @@ namespace CsharpTestTask.Controllers
         //----Edit Contact Person ---------
         public ActionResult EditContactPerson(long id)
         {
-            return View(FakeCreator.getContactPersonById(id));
+            return View(PostgreSQLDbRepository.getInstance().getContactPersonById(id));
         }
         
         [HttpPost]
@@ -107,7 +107,16 @@ namespace CsharpTestTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Message = "Contact person was sucessfull updated!";
+                bool isSucces = PostgreSQLDbRepository.getInstance().UpdateContactPerson(item);
+
+                if (isSucces)
+                {
+                    ViewBag.SuccesMessage = "Contact person was sucessfull updated!";
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Can not update user into database!";
+                }
             }
             return View(item);
         }
@@ -134,7 +143,7 @@ namespace CsharpTestTask.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(FakeCreator.generateUsers().ToPagedList(pageNumber, pageSize));
+            return View(PostgreSQLDbRepository.getInstance().getAllUsers().ToPagedList(pageNumber, pageSize));
         }
 
         //Page get client
@@ -175,12 +184,12 @@ namespace CsharpTestTask.Controllers
             }
              if (sortType == SortType.ClientName)
             {
-                list = FakeCreator.getUsersBySortType(SortType.ClientName);
+                list = PostgreSQLDbRepository.getInstance().getAllUsers();
                 System.Web.HttpContext.Current.Session["sortType"] = sortType; 
             }
             else if (sortType == SortType.DateOfLastCall)
             {
-                list = FakeCreator.getUsersBySortType(SortType.DateOfLastCall);
+                list = PostgreSQLDbRepository.getInstance().getAllUsers();
                 System.Web.HttpContext.Current.Session["sortType"] = sortType; 
             }
 
@@ -205,7 +214,7 @@ namespace CsharpTestTask.Controllers
             Int32.TryParse(dealState, out position);
 
             List<UserDto> list = null;
-            list = FakeCreator.generateUsers();
+            list = PostgreSQLDbRepository.getInstance().getAllUsers();
 
 
             var users = from item in list

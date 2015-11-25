@@ -206,8 +206,10 @@ namespace CsharpTestTask.Controllers.DbHelper
         }
 
 
-        public void UpdateClient(Сlient item)
+        public bool UpdateClient(Сlient item)
         {
+            bool isSucces = false;
+
             item.Name = "SlipknotCompany";
             item.Id = 3;
             string query = "UPDATE clients_table " +
@@ -220,16 +222,24 @@ namespace CsharpTestTask.Controllers.DbHelper
             " contact_person_id= " + item.ContactPersonId + " " +
             " WHERE id=" + item.Id + ";";
 
-            NpgsqlConnection con = getConection();
+            try
+            {
+                NpgsqlConnection con = getConection();
 
-            NpgsqlCommand com = new NpgsqlCommand(query, con);
-            con.Open();
-            NpgsqlDataReader reader;
-            reader = com.ExecuteReader();
+                NpgsqlCommand com = new NpgsqlCommand(query, con);
+                con.Open();
+                NpgsqlDataReader reader;
+                reader = com.ExecuteReader();
 
-            reader.Close();
+                reader.Close();
 
-            con.Close();
+                con.Close();
+
+                isSucces = true;
+            }
+            catch { isSucces = false; }
+
+            return isSucces;
         }
 
         public bool AddClient(Сlient item)
@@ -358,10 +368,9 @@ namespace CsharpTestTask.Controllers.DbHelper
             con.Close();
         }
 
-        public void UpdateContactPerson(ContactPerson item)
+        public bool UpdateContactPerson(ContactPerson item)
         {
-            item.Name = "Виктор";
-            item.Id = 4;
+            bool isSucces = false;
 
             string query = "UPDATE contact_person " +
   " SET first_name=" + "'" + item.Surname + "'" + " , " +
@@ -372,16 +381,24 @@ namespace CsharpTestTask.Controllers.DbHelper
       " email= " + "'" + item.Email + "'" + "  " +
  " WHERE " + "id=" + item.Id + "; ";
 
-            NpgsqlConnection con = getConection();
+            try
+            {
+                NpgsqlConnection con = getConection();
 
-            NpgsqlCommand com = new NpgsqlCommand(query, con);
-            con.Open();
-            NpgsqlDataReader reader;
-            reader = com.ExecuteReader();
+                NpgsqlCommand com = new NpgsqlCommand(query, con);
+                con.Open();
+                NpgsqlDataReader reader;
+                reader = com.ExecuteReader();
 
-            reader.Close();
+                reader.Close();
 
-            con.Close();
+                con.Close();
+
+                isSucces = true;
+            }
+            catch { isSucces = false; }
+
+            return isSucces;
 
         }
 
