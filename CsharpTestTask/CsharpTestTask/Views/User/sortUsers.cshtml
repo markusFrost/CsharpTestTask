@@ -36,7 +36,7 @@
     <tr>
        <th>
            
-            @Html.ActionLink("Client name", "sortUsers",  new { sortType = CsharpTestTask.Models.Enums.SortType.ClientName  })
+            @Html.ActionLink("Client name", "sortUsers",  new { sortType = CsharpTestTask.Models.Enums.SortType.ClientName  },new { @class="href_sort" })
         </th>
         <th>
             Client phone
@@ -46,7 +46,7 @@
         </th>
         <th>
            
-            @Html.ActionLink("Date of last call", "sortUsers",  new { sortType = CsharpTestTask.Models.Enums.SortType.DateOfLastCall  })
+            @Html.ActionLink("Date of last call", "sortUsers",  new { sortType = CsharpTestTask.Models.Enums.SortType.DateOfLastCall  },new { @class="href_sort" })
         </th>
         <th>
            Date of created client

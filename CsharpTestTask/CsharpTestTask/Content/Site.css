@@ -4,6 +4,13 @@
     padding: 0;
 }
 
+ a.href_sort 
+    {
+        text-decoration: underline !important;
+        font-style: italic !important;
+        color:red;
+    }
+
 body {
     background-color: #fff;
     border-top: solid 10px #000;
@@ -740,6 +747,7 @@ tr.pager td {
         margin:20px;
     }
 
+   
 
     /* footer
     ----------------------------------------------------------*/
