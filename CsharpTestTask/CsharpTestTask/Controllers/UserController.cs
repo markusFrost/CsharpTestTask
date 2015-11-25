@@ -175,7 +175,7 @@ namespace CsharpTestTask.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(FakeCreator.getContactPersons().ToPagedList(pageNumber, pageSize));
+            return View(PostgreSQLDbRepository.getInstance().getAllContactPersons().ToPagedList(pageNumber, pageSize));
         }
 
        
