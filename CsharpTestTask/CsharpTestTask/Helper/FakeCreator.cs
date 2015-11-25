@@ -14,6 +14,31 @@ namespace CsharpTestTask.Helper
 
         public  static  string[] statesArray = { "First Contact", "Conversation", "Harmonization Of Contract", "Cooperation" };
 
+        public static List<Сlient> getСlients()
+        {
+            List<Сlient> list = new List<Сlient>();
+
+            Сlient item = null;
+
+            for (int i = 0; i <= 50; i++)
+            {
+                item = new Сlient();
+                item.AdressWebSite = "http://vk.com/id53074293";
+                item.ContactPersonId = 2;
+                item.DateCreate = "11/21/2015";
+                item.DateOfLastCall = "11/22/2015";
+                item.DealState = SimpleHeper.getDealStatusByValue(i % 4);
+                item.Id = i;
+                item.Name = "Name " + i;
+                item.Phone = "Phone " + i;
+
+                list.Add(item);
+
+            }
+
+            return list;
+        }
+
         public static List<UserDto> getUsersBySortType(SortType sortType)
         {
             List<UserDto> list = generateUsers();

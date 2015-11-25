@@ -28,9 +28,16 @@
 </p>
 
 <p>
-    @Html.ActionLink("Create new client", "RegisterClient", null, new { target = "_blank" })
-     @Html.ActionLink("Create new contact person", "RegisterContactPerson", null, new { target = "_blank" })
+    @Html.ActionLink("Create new client", "RegisterClient")
+     @Html.ActionLink("Create new contact person", "RegisterContactPerson")
 </p>
+
+<p>
+    @Html.ActionLink("Display clients", "getClients")
+     @Html.ActionLink("Display contact person", "RegisterContactPerson")
+</p>
+
+
 <table class="table table-striped">
     <tr>
        <th>

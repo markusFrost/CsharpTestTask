@@ -175,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\FakeCreator.cs" />
+    <Compile Include="Helper\SimpleHeper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ContactPerson.cs" />
     <Compile Include="Models\Enums\DealStatus.cs" />
@@ -306,6 +307,7 @@
     <Content Include="Views\User\DeleteContactPerson.cshtml" />
     <Content Include="Views\User\sortUsers.cshtml" />
     <Content Include="Views\User\fielterUsers.cshtml" />
+    <Content Include="Views\User\getClients.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

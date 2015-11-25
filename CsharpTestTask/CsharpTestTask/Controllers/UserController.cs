@@ -123,6 +123,13 @@ namespace CsharpTestTask.Controllers
             return View(FakeCreator.generateUsers().ToPagedList(pageNumber, pageSize));
         }
 
+        //Page get contact face
+        public ActionResult getClients(int? page)
+        {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(FakeCreator.getСlients().ToPagedList(pageNumber, pageSize));
+        }
 
         //Sort users with pagination and sort param
         public ActionResult sortUsers(int? page, SortType? sortType)
