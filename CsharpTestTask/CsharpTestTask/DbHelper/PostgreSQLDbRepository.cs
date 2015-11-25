@@ -386,22 +386,36 @@ namespace CsharpTestTask.Controllers.DbHelper
             return item;
         }
 
-        public void deleteClient(long id)
+        public bool deleteClient(long id)
         {
+            bool isSucces = false;
+
             string query = "DELETE FROM clients_table " +
                " WHERE " + "id=" + id + "; "; ;
 
-            NpgsqlConnection con = getConection();
+            try
+            {
+                NpgsqlConnection con = getConection();
 
-            NpgsqlCommand com = new NpgsqlCommand(query, con);
-            con.Open();
-            NpgsqlDataReader reader;
-            reader = com.ExecuteReader();
+                NpgsqlCommand com = new NpgsqlCommand(query, con);
+                con.Open();
+                NpgsqlDataReader reader;
+                reader = com.ExecuteReader();
 
-            reader.Close();
+                reader.Close();
 
-            con.Close();
+                con.Close();
 
+                isSucces = true;
+            }
+            catch { isSucces = false; }
+
+            if (!isSucces && getConection() != null )
+            {
+                getConection().Close();
+            }
+
+            return isSucces;
         }
 
 
@@ -548,21 +562,37 @@ namespace CsharpTestTask.Controllers.DbHelper
 
         }
 
-        public void DeleteContactPerson(long id)
+        public bool deleteContactPerson(long id)
         {
+            bool isSucces = false;
+
             string query = "DELETE FROM contact_person " +
                 " WHERE " + "id=" + id + "; "; ;
 
-            NpgsqlConnection con = getConection();
+            try
+            {
+                NpgsqlConnection con = getConection();
 
-            NpgsqlCommand com = new NpgsqlCommand(query, con);
-            con.Open();
-            NpgsqlDataReader reader;
-            reader = com.ExecuteReader();
+                NpgsqlCommand com = new NpgsqlCommand(query, con);
+                con.Open();
+                NpgsqlDataReader reader;
+                reader = com.ExecuteReader();
 
-            reader.Close();
+                reader.Close();
 
-            con.Close();
+                con.Close();
+
+                isSucces = true;
+
+            }
+            catch { isSucces = false; }
+
+            if (!isSucces && getConection() != null)
+            {
+                getConection().Close();
+            }
+
+            return isSucces;
         }
 
         public bool UpdateContactPerson(ContactPerson item)

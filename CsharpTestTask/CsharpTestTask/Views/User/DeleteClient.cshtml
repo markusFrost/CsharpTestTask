@@ -3,4 +3,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Client was succesfull deleted!</h2>
+@if (ViewBag.SuccesMessage != null)
+       {
+           <div style="font: 15px bold; color:green;">
+               @ViewBag.SuccesMessage
+           </div>
+       }
+
+         @if (ViewBag.ErrorMessage != null)
+         {
+           <div style="font: 15px bold; color:red;">
+               @ViewBag.ErrorMessage
+           </div>
+         }

@@ -3,4 +3,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Contact Person was succesfull delete!</h2>
+
+
+@if (ViewBag.SuccesMessage != null)
+       {
+           <div style="font: 15px bold; color:green;">
+               @ViewBag.SuccesMessage
+           </div>
+       }
+
+         @if (ViewBag.ErrorMessage != null)
+         {
+           <div style="font: 15px bold; color:red;">
+               @ViewBag.ErrorMessage
+           </div>
+         }

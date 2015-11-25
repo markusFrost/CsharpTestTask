@@ -133,13 +133,32 @@ namespace CsharpTestTask.Controllers
         //------ Delete 
         public ActionResult DeleteClient(long id)
         {
-            //use id of client it is very simple to delete it
+            bool isSucces = PostgreSQLDbRepository.getInstance().deleteClient(id);
+
+            if (isSucces)
+            {
+                ViewBag.SuccesMessage = "Client was sucessfull deleted";
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Can not delete user!";
+            }
+
             return View();
         }
 
         public ActionResult DeleteContactPerson(long id)
         {
-            //use id of contact person it is very simple to delete it
+            bool isSucces = PostgreSQLDbRepository.getInstance().deleteContactPerson(id);
+
+            if (isSucces)
+            {
+                ViewBag.SuccesMessage = "Contact person was sucessfull deleted";
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Contact person was not deleted!";
+            }
             return View();
         }
         //------ Delete 
