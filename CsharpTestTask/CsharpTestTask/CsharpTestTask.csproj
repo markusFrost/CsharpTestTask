@@ -309,6 +309,7 @@
     <Content Include="Views\User\fielterUsers.cshtml" />
     <Content Include="Views\User\getClients.cshtml" />
     <Content Include="Views\User\getContactPersons.cshtml" />
+    <Content Include="Views\User\getClientsByCp_id.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

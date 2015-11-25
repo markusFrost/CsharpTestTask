@@ -14,6 +14,18 @@ namespace CsharpTestTask.Helper
 
         public  static  string[] statesArray = { "First Contact", "Conversation", "Harmonization Of Contract", "Cooperation" };
 
+        public static string getContactPersonNamebyId( long id )
+        {
+            List<ContactPerson> list = getContactPersons();
+
+            var persons = from item in list
+                         where item.Id == id
+                         select item;
+            ContactPerson cp = persons.ToList<ContactPerson>().First<ContactPerson>();
+
+            return " " + cp.Surname + " " + cp.Name + " " + cp.Patronymic;
+        }
+
         public static List<ContactPerson> getContactPersons()
         {
             List<ContactPerson> list = new List<ContactPerson>();
@@ -37,6 +49,19 @@ namespace CsharpTestTask.Helper
             return list;
         }
 
+        public static List<Сlient> getСlientsByCp_id( long cp_id)
+        {
+            List<Сlient> list = getСlients();
+
+
+
+            var clients = from client in list
+                          where client.ContactPersonId == cp_id
+                          select client;
+
+            return clients.ToList<Сlient>();
+        }
+
         public static List<Сlient> getСlients()
         {
             List<Сlient> list = new List<Сlient>();
@@ -47,7 +72,7 @@ namespace CsharpTestTask.Helper
             {
                 item = new Сlient();
                 item.AdressWebSite = "http://vk.com/id53074293";
-                item.ContactPersonId = 2;
+                item.ContactPersonId = i % 4;
                 item.DateCreate = "11/21/2015";
                 item.DateOfLastCall = "11/22/2015";
                 item.DealState = SimpleHeper.getDealStatusByValue(i % 4);

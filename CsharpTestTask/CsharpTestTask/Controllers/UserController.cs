@@ -123,12 +123,20 @@ namespace CsharpTestTask.Controllers
             return View(FakeCreator.generateUsers().ToPagedList(pageNumber, pageSize));
         }
 
-        //Page get contact face
+        //Page get client
         public ActionResult getClients(int? page)
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
             return View(FakeCreator.getСlients().ToPagedList(pageNumber, pageSize));
+        }
+
+        //Page get client by contact_person id
+        public ActionResult getClientsByCp_id(int? page, int cp_id)
+        {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(FakeCreator.getСlientsByCp_id(cp_id).ToPagedList(pageNumber, pageSize));
         }
 
         //Page get contact persons

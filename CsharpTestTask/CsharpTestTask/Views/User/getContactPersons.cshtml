@@ -9,7 +9,7 @@
 <h2>getContactPersons</h2>
 
 <p>
-    @Html.ActionLink("Create New", "RegisterContactPerson")
+    @Html.ActionLink("Create New Contact Person", "RegisterContactPerson")
 </p>
 <table class="table table-striped">
     <tr>
@@ -56,7 +56,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit contact person", "EditContactPerson", new { id=item.Id }) |
-            @Html.ActionLink("Display clients", "Details", new { cl_id=item.Id }) |
+            @Html.ActionLink("Display clients", "getClientsByCp_id", new { cp_id=item.Id }) |
         </td>
     </tr>
 }

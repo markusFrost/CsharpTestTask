@@ -1,0 +1,84 @@
+﻿@model PagedList.IPagedList<CsharpTestTask.Models.Сlient>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "getClients";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Contac person : 
+
+
+
+@{
+    long cp_id = 0;
+    foreach (var item in Model) 
+{
+    cp_id = item.ContactPersonId;
+    @Html.Label(@CsharpTestTask.Helper.FakeCreator.getContactPersonNamebyId(item.ContactPersonId))
+    break;
+}
+}
+
+    
+</h2>
+
+<p>
+    @Html.ActionLink("Create New Client", "RegisterClient")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+           
+           Client name
+        </th>
+        <th>
+            Client phone
+        </th>
+        <th>
+            Clients web site
+        </th>
+        <th>
+           
+            Date of last call
+        </th>
+        <th>
+           Date of created client
+        </th>
+        <th>
+           Deal state
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdressWebSite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfLastCall)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreate)
+        </td>
+        <td>
+            @Html.Label(CsharpTestTask.Helper.SimpleHeper.getStringDealStaus(item.DealState), new  {  style="font-weight:100;" })
+        </td>
+        <td>
+            @Html.ActionLink("Edit client", "EditClient", new { id=item.Id }) 
+        </td>
+    </tr>
+}
+
+</table>
+
+Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+ 
+@Html.PagedListPager(Model, page => Url.Action("getClientsByCp_id",  new { page , cp_id }))
