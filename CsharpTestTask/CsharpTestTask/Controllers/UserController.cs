@@ -9,6 +9,7 @@ using PagedList.Mvc;
 using PagedList;
 using CsharpTestTask.Helper;
 using CsharpTestTask.Models.Enums;
+using CsharpTestTask.Controllers.DbHelper;
 
 namespace CsharpTestTask.Controllers
 {
@@ -54,7 +55,16 @@ namespace CsharpTestTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Message = "Successfully Registration Done!";
+               bool isSucces =   PostgreSQLDbRepository.getInstance().AddContactPerson(item);
+
+               if (isSucces)
+               {
+                   ViewBag.SuccesMessage = "Successfully Registration Done!";
+               }
+               else
+               {
+                   ViewBag.ErrorMessage = "Can not save user to database!";
+               }
             }
             return View(item);
         }

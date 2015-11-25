@@ -45,3 +45,5 @@ C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestT
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\PagedList.Mvc.dll
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\PagedList.xml
 C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\PagedList.Mvc.xml
+C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\Mono.Security.dll
+C:\Users\Андрей\Documents\GitHub\CsharpTestTask\CsharpTestTask\CsharpTestTask\bin\Npgsql.dll
