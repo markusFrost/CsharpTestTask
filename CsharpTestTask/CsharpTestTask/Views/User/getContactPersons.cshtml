@@ -6,10 +6,10 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-<h2>getContactPersons</h2>
+<h2>Display all contact persons</h2>
 
 <p>
-    @Html.ActionLink("Create New Contact Person", "RegisterContactPerson")
+    @Html.ActionLink("Create New Contact Person", "RegisterContactPerson", null, new { @class="href_sort" })
 </p>
 <table class="table table-striped">
     <tr>

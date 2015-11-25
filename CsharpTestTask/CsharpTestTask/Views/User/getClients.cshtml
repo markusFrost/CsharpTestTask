@@ -6,10 +6,10 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-<h2>getClients</h2>
+<h2>Display all clients</h2>
 
 <p>
-    @Html.ActionLink("Create New", "RegisterClient")
+    @Html.ActionLink("Create New Client", "RegisterClient", null, new { @class="href_sort" })
 </p>
 <table class="table table-striped">
     <tr>
