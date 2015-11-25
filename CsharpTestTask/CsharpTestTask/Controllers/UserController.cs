@@ -30,9 +30,7 @@ namespace CsharpTestTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                item.DateCreate = SimpleHeper.getDateTimeByMills( SimpleHeper.getNowTimeInMillisecond() );
-
-                bool isSucces = PostgreSQLDbRepository.getInstance().AddClient(item);
+               bool isSucces = PostgreSQLDbRepository.getInstance().AddClient(item);
                 if (isSucces)
                 {
                     ViewBag.SuccesMessage = "Successfully Registration Done!";

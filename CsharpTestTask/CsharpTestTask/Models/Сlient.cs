@@ -21,7 +21,7 @@ namespace CsharpTestTask.Models
         public string Phone { get; set; }
 
         [DisplayName("Addres of web site")]
-        [RegularExpression(@"^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$",
+        [RegularExpression(@"^https?\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$",
                     ErrorMessage = "Please provide valid addres of website")]
         [Required(ErrorMessage = "Please enter addres of website", AllowEmptyStrings = false)]
         public string AdressWebSite { get; set; }
@@ -29,12 +29,12 @@ namespace CsharpTestTask.Models
         [DisplayName("Date of last call")]
         public string DateOfLastCall { get; set; }
 
-        [DisplayName("Deal State")]
+        [DisplayName("Date Create")]
         public string DateCreate { get; set; }
 
         public DealStatus DealState { get; set; }
 
-        [DisplayName("Contact face name")]
+        [DisplayName("Contact person name")]
         public long ContactPersonId { get; set; }
     }
 }
