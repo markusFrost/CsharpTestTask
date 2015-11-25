@@ -118,5 +118,7 @@ namespace CsharpTestTask.Helper
 
             return DealStatus.FirstContact;
         }
+
+
     }
 }

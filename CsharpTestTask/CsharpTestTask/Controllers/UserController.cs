@@ -30,13 +30,17 @@ namespace CsharpTestTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                item.DateCreate = FakeCreator.getDateTimeByMills(FakeCreator.getNowTimeInMillisecond());
+                item.DateCreate = SimpleHeper.getDateTimeByMills( SimpleHeper.getNowTimeInMillisecond() );
 
-                long time = FakeCreator.getTimeInMillisecond(item.DateOfLastCall);
-
-                string dateString = FakeCreator.getDateTimeByMills(time);
-
-                ViewBag.Message = "Successfully Registration Done!";
+                bool isSucces = PostgreSQLDbRepository.getInstance().AddClient(item);
+                if (isSucces)
+                {
+                    ViewBag.SuccesMessage = "Successfully Registration Done!";
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Can not save user to database!";
+                }
             }
             return View(item);
         }

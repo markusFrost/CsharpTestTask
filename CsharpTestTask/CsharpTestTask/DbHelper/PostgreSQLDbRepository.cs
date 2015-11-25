@@ -232,8 +232,10 @@ namespace CsharpTestTask.Controllers.DbHelper
             con.Close();
         }
 
-        public void AddClient(Сlient item)
+        public bool AddClient(Сlient item)
         {
+            bool isSucces = false;
+
             string query = "INSERT INTO clients_table( " +
                            " client_name, work_phone, addres_web_site, date_of_last_call, " +
                            "  date_create, deal_state,  contact_person_id) " +
@@ -242,19 +244,27 @@ namespace CsharpTestTask.Controllers.DbHelper
                            SimpleHeper.getTimeInMillisecond(item.DateCreate) + " , " + SimpleHeper.getDealStaus(item.DealState) + " , " +
                            item.ContactPersonId + " );";
 
-            NpgsqlConnection con = getConection();
+            try
+            {
+                NpgsqlConnection con = getConection();
 
-            NpgsqlCommand com = new NpgsqlCommand(query, con);
-            con.Open();
-            NpgsqlDataReader reader;
-            reader = com.ExecuteReader();
+                NpgsqlCommand com = new NpgsqlCommand(query, con);
+                con.Open();
+                NpgsqlDataReader reader;
+                reader = com.ExecuteReader();
 
-            reader.Close();
+                reader.Close();
 
-            con.Close();
+                con.Close();
+
+                isSucces = true;
+            }
+            catch { isSucces = false; }
+
+            return isSucces;
         }
 
-        //--Contact Face
+        //--Contact Person
 
         public List<ContactPerson> getAllContactPersons()
         {
@@ -409,7 +419,7 @@ namespace CsharpTestTask.Controllers.DbHelper
 
         }
 
-        public  List<SelectListItem> generateContactFace()
+        public  List<SelectListItem> getNameContactFace()
         {
             List<SelectListItem> list = new List<SelectListItem>();
 
