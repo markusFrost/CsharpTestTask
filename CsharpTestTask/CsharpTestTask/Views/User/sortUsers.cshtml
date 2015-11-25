@@ -29,9 +29,15 @@
 
 
 <p>
-    @Html.ActionLink("Create new client", "RegisterClient", null, new { target = "_blank" })
-     @Html.ActionLink("Create new contact person", "RegisterContactPerson", null, new { target = "_blank" })
+    @Html.ActionLink("Create new client", "RegisterClient", null, new { @class="href_sort" })
+     @Html.ActionLink("Create new contact person", "RegisterContactPerson", null, new { @class="href_sort" })
 </p>
+
+<p>
+    @Html.ActionLink("Display clients", "getClients", null, new { @class="href_sort" })
+     @Html.ActionLink("Display contact person", "getContactPersons", null, new { @class="href_sort" })
+</p>
+
 <table class="table table-striped">
     <tr>
        <th>
