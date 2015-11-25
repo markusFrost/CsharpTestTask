@@ -32,7 +32,17 @@ namespace CsharpTestTask.Controllers.DbHelper
         static NpgsqlConnection conection;
         private static NpgsqlConnection getConection()
         {
-            string connect_string = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=123456;Database=ClientDb;";
+
+            const string SERVER_URL = "127.0.0.1";
+            const int PORT = 5432;
+            const string ID = "postgres";
+            const string PASSWORD = "123456";
+            const string DB_NAME = "ClientDb";
+
+
+           // string connect_string = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=123456;Database=ClientDb;";
+
+            string connect_string = "Server=" + SERVER_URL + ";Port=" + PORT + ";User Id=" + ID + ";Password="+PASSWORD + ";Database=" + DB_NAME + ";";
 
             if (conection == null)
             {
