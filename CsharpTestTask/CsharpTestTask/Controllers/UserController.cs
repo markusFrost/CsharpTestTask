@@ -218,18 +218,10 @@ namespace CsharpTestTask.Controllers
             {
                 dealState = (string)System.Web.HttpContext.Current.Session["dealState"];
             }
-            int position = 0;
-            Int32.TryParse(dealState, out position);
+
 
             List<UserDto> list = null;
-            list = PostgreSQLDbRepository.getInstance().getAllUsers();
-
-
-            var users = from item in list
-                        where item.ClientDealState == FakeCreator.statesArray[position]
-                        select item;
-
-            list = users.ToList<UserDto>();
+            list = PostgreSQLDbRepository.getInstance().getAllUsersByFilter(dealState);
 
             int pageSize = 10;
             int pageNumber = (page ?? 1);
