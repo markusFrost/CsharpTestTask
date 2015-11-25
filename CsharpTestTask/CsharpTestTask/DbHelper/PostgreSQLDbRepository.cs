@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace CsharpTestTask.Controllers.DbHelper
 {
@@ -406,6 +407,22 @@ namespace CsharpTestTask.Controllers.DbHelper
 
             return isSucces;
 
+        }
+
+        public  List<SelectListItem> generateContactFace()
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+
+
+            List<ContactPerson> listPersons = getAllContactPersons();
+
+            foreach (ContactPerson item in listPersons)
+            {
+                string value = item.Surname + " " + item.Name + " " + item.Patronymic;
+                list.Add(new SelectListItem { Value = item.Id + "", Text = value });
+            }
+          
+            return list;
         }
 
 
